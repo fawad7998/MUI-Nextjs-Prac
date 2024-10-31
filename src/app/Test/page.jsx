@@ -127,7 +127,7 @@ const FeatureCard = styled(Card)(({ theme }) => ({
     },
 }))
 
-export default function Page() {
+export default function Test() {
     return (
         <ThemeProvider theme={theme}>
             <Box sx={{ bgcolor: 'background.default', color: 'white' }}>
