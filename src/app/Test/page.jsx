@@ -1,8 +1,6 @@
 'use client'
-
 import React from 'react'
 import {
-    AppBar,
     Box,
     Button,
     Card,
@@ -13,10 +11,10 @@ import {
     Stack,
     TextField,
     ThemeProvider,
-    Toolbar,
     Typography,
     createTheme,
     alpha,
+    InputAdornment,
 } from '@mui/material'
 import Image from 'next/image'
 import { styled } from '@mui/material/styles'
@@ -26,6 +24,7 @@ import SmartToyIcon from '@mui/icons-material/SmartToy'
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { motion } from 'framer-motion'
+import ResponsiveAppBar from './Appbar/page'
 
 // Create custom dark theme with purple accents
 const theme = createTheme({
@@ -134,25 +133,7 @@ export default function Page() {
         <ThemeProvider theme={theme}>
             <Box sx={{ bgcolor: 'background.default', color: 'white' }}>
                 {/* Navigation */}
-                <AppBar position="fixed" color="transparent" elevation={0} sx={{ backdropFilter: 'blur(10px)' }}>
-                    <Toolbar>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <SmartToyIcon sx={{ color: 'primary.main', fontSize: 32 }} />
-                            <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 700 }}>
-                                AI Chat
-                            </Typography>
-                        </Box>
-                        <Stack direction="row" spacing={2} sx={{ ml: 'auto' }}>
-                            <Button color="inherit">Features</Button>
-                            <Button color="inherit">Pricing</Button>
-                            <Button color="inherit">About</Button>
-                            <Button variant="contained" color="primary">
-                                Get Started
-                            </Button>
-                        </Stack>
-                    </Toolbar>
-                </AppBar>
-
+                <ResponsiveAppBar />
                 {/* Hero Section */}
                 <Container maxWidth="lg" sx={{ pt: 15, pb: 10 }}>
                     <Grid container spacing={6} alignItems="center">
@@ -184,6 +165,7 @@ export default function Page() {
                                     Experience the next generation of AI-powered conversations. Smarter, faster, and more natural than ever
                                     before.
                                 </Typography>
+
                                 <StyledTextField
                                     fullWidth
                                     variant="outlined"
@@ -191,9 +173,15 @@ export default function Page() {
                                     sx={{ mb: 3 }}
                                     InputProps={{
                                         endAdornment: (
-                                            <Button variant="contained" color="primary" sx={{ borderRadius: '8px' }}>
-                                                Ask AI
-                                            </Button>
+                                            <InputAdornment position="end">
+                                                <Button
+                                                    variant="contained"
+                                                    color="primary"
+                                                    sx={{ borderRadius: '8px', width: '150px' }}
+                                                >
+                                                    Ask AI
+                                                </Button>
+                                            </InputAdornment>
                                         ),
                                     }}
                                 />
@@ -206,15 +194,13 @@ export default function Page() {
                                 transition={{ duration: 0.8 }}
                             >
                                 <GlowingCard>
-                                    <CardContent sx={{ p: 0 }}>
-                                        <Image
-                                            src="/one.png"
-                                            alt="Chat Interface Preview"
-                                            width={200}
-                                            height={200}
-                                            style={{ width: '100%', height: '300px' }}
-                                        />
-                                    </CardContent>
+                                    <Image
+                                        src="/oneone.png"
+                                        alt="Chat Interface Preview"
+                                        width={200}
+                                        height={200}
+                                        style={{ width: '100%', height: '300px', objectFit: "fill" }}
+                                    />
                                 </GlowingCard>
                             </motion.div>
                         </Grid>
@@ -264,7 +250,7 @@ export default function Page() {
                                                 alt={feature.title}
                                                 width={400}
                                                 height={400}
-                                                style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
+                                                style={{ width: "auto", height: '35vh' }}
                                             />
                                         </CardContent>
                                     </FeatureCard>
@@ -315,7 +301,8 @@ export default function Page() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: index * 0.2 }}
                                 >
-                                    <PricingCard>
+
+                                    <PricingCard sx={{ height: '58vh' }}>
                                         <CardContent sx={{ p: 4 }}>
                                             <Typography variant="h5" gutterBottom>
                                                 {plan.title}
@@ -363,57 +350,60 @@ export default function Page() {
                             {
                                 name: 'Sarah Johnson',
                                 role: 'Product Designer',
-                                image: 'https://placehold.co/100x100/1a1a1a/9333EA?text=SJ',
+                                image: '/abc.jpg',
                                 comment:
                                     "The AI's understanding of context and nuance is remarkable. It's like chatting with a knowledgeable friend.",
                             },
                             {
                                 name: 'Michael Chen',
                                 role: 'Software Engineer',
-                                image: 'https://placehold.co/100x100/1a1a1a/9333EA?text=MC',
+                                image: '/abc.jpg',
                                 comment:
                                     'The response speed and accuracy have significantly improved my workflow. A game-changer for developers.',
                             },
                             {
                                 name: 'Emily Rodriguez',
                                 role: 'Content Creator',
-                                image: 'https://placehold.co/100x100/1a1a1a/9333EA?text=ER',
+                                image: '/abc.jpg',
                                 comment:
                                     'This AI chat platform has revolutionized how I brainstorm and develop content ideas. Absolutely love it!',
                             },
                         ].map((testimonial, index) => (
                             <Grid item xs={12} md={4} key={index}>
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: index * 0.2 }}
-                                >
-                                    <Card sx={{ height: '100%', borderRadius: '16px' }}>
-                                        <CardContent sx={{ p: 4 }}>
-                                            <Rating value={5} readOnly sx={{ mb: 2 }} />
-                                            <Typography variant="body1" paragraph sx={{ mb: 3 }}>
-                                                "{testimonial.comment}"
-                                            </Typography>
-                                            <Stack direction="row" spacing={2} alignItems="center">
-                                                <Image
-                                                    src={testimonial.image}
-                                                    alt={testimonial.name}
-                                                    width={48}
-                                                    height={48}
-                                                    style={{ borderRadius: '50%' }}
-                                                />
-                                                <Box>
-                                                    <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                                                        {testimonial.name}
-                                                    </Typography>
-                                                    <Typography variant="caption" color="text.secondary">
-                                                        {testimonial.role}
-                                                    </Typography>
-                                                </Box>
-                                            </Stack>
-                                        </CardContent>
-                                    </Card>
-                                </motion.div>
+                                <PricingCard>
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: .5, delay: index * 0.2 }}
+                                    >
+                                        <Card sx={{ height: '100%', borderRadius: '16px' }}>
+                                            <CardContent sx={{ p: 4 }}>
+                                                <Rating value={5} readOnly sx={{ mb: 2 }} />
+                                                <Typography variant="body1" paragraph sx={{ mb: 3 }}>
+                                                    "{testimonial.comment}"
+                                                </Typography>
+                                                <Stack direction="row" spacing={2} alignItems="center">
+                                                    <Image
+                                                        src={testimonial.image}
+                                                        alt={testimonial.name}
+                                                        width={38}
+                                                        height={38}
+                                                        style={{ borderRadius: '50%' }}
+                                                    />
+                                                    <Box>
+                                                        <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                                                            {testimonial.name}
+                                                        </Typography>
+                                                        <Typography variant="caption" color="text.secondary">
+                                                            {testimonial.role}
+                                                        </Typography>
+                                                    </Box>
+                                                </Stack>
+                                            </CardContent>
+                                        </Card>
+                                    </motion.div>
+                                </PricingCard>
+
                             </Grid>
                         ))}
                     </Grid>
@@ -453,7 +443,7 @@ export default function Page() {
                                     links: ['Community', 'Support', 'Terms', 'Privacy'],
                                 },
                             ].map((section, index) => (
-                                <Grid item xs={12} md={2} key={index}>
+                                <Grid item xs={6} md={2} key={index}>
                                     <Typography variant="h6" gutterBottom>
                                         {section.title}
                                     </Typography>
