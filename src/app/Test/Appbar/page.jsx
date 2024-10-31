@@ -43,7 +43,6 @@ export default function ResponsiveAppBar() {
                         </Typography>
                     </Box>
 
-                    {/* Display menu on large screens */}
                     <Stack direction="row" spacing={2} sx={{ ml: 'auto', display: { xs: 'none', md: 'flex' } }}>
                         <Button color="inherit">Features</Button>
                         <Button color="inherit">Pricing</Button>
@@ -53,7 +52,6 @@ export default function ResponsiveAppBar() {
                         </Button>
                     </Stack>
 
-                    {/* Menu icon for mobile screens */}
                     <IconButton
                         color="inherit"
                         edge="end"
@@ -65,13 +63,12 @@ export default function ResponsiveAppBar() {
                 </Toolbar>
             </AppBar>
 
-            {/* Drawer for mobile screens */}
             <Drawer
                 anchor="right"
                 open={mobileOpen}
                 onClose={handleDrawerToggle}
                 ModalProps={{
-                    keepMounted: true, // Better open performance on mobile.
+                    keepMounted: true,
                 }}
             >
                 {drawerContent}

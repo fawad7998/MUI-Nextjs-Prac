@@ -26,7 +26,6 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { motion } from 'framer-motion'
 import ResponsiveAppBar from './Appbar/page'
 
-// Create custom dark theme with purple accents
 const theme = createTheme({
     palette: {
         mode: 'dark',
@@ -132,9 +131,8 @@ export default function Page() {
     return (
         <ThemeProvider theme={theme}>
             <Box sx={{ bgcolor: 'background.default', color: 'white' }}>
-                {/* Navigation */}
                 <ResponsiveAppBar />
-                {/* Hero Section */}
+
                 <Container maxWidth="lg" sx={{ pt: 15, pb: 10 }}>
                     <Grid container spacing={6} alignItems="center">
                         <Grid item xs={12} md={6}>
@@ -207,7 +205,7 @@ export default function Page() {
                     </Grid>
                 </Container>
 
-                {/* Features Section */}
+
                 <Container maxWidth="lg" sx={{ py: 10 }}>
                     <Grid container spacing={4}>
                         {[
@@ -260,7 +258,6 @@ export default function Page() {
                     </Grid>
                 </Container>
 
-                {/* Pricing Section */}
                 <Container maxWidth="lg" sx={{ py: 10 }}>
                     <Typography variant="h2" align="center" gutterBottom>
                         Pricing plans for everyone
@@ -337,7 +334,6 @@ export default function Page() {
                     </Grid>
                 </Container>
 
-                {/* Testimonials Section */}
                 <Container maxWidth="lg" sx={{ py: 10 }}>
                     <Typography variant="h2" align="center" gutterBottom>
                         What our users say
@@ -409,7 +405,6 @@ export default function Page() {
                     </Grid>
                 </Container>
 
-                {/* Footer */}
                 <Box sx={{ bgcolor: 'background.paper', mt: 8, py: 8 }}>
                     <Container maxWidth="lg">
                         <Grid container spacing={4}>
