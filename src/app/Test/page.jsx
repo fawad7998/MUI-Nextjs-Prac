@@ -132,7 +132,6 @@ export default function Test() {
         <ThemeProvider theme={theme}>
             <Box sx={{ bgcolor: 'background.default', color: 'white' }}>
                 <ResponsiveAppBar />
-
                 <Container maxWidth="lg" sx={{ pt: 15, pb: 10 }}>
                     <Grid container spacing={6} alignItems="center">
                         <Grid item xs={12} md={6}>

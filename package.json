@@ -13,10 +13,12 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.5",
     "@mui/material": "^6.1.5",
+    "alias": "^0.0.5",
     "framer-motion": "^11.11.10",
     "next": "15.0.2",
     "react": "19.0.0-rc-02c0e824-20241028",
-    "react-dom": "19.0.0-rc-02c0e824-20241028"
+    "react-dom": "19.0.0-rc-02c0e824-20241028",
+    "three": "^0.170.0"
   },
   "devDependencies": {
     "postcss": "^8",
