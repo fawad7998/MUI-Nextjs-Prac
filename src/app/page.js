@@ -1,4 +1,4 @@
-import Resume from "@components/resume/page";
+import Resume from "./resume/page";
 
 export default function Home() {
   return (
