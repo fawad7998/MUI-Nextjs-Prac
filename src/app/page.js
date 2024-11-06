@@ -1,9 +1,9 @@
-import Resume from "./resume/page";
+import Test from "./Test/page";
 
 export default function Home() {
   return (
     <>
-      <Resume />
+      <Test/>
     </>
   );
 }
