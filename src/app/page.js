@@ -1,9 +1,9 @@
-import Test from './Test/page';
+import Resume from "@components/resume/page";
 
 export default function Home() {
   return (
     <>
-      <Test />
+      <Resume />
     </>
   );
 }

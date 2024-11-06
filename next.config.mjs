@@ -13,10 +13,14 @@ const nextConfig = {
         hostname: 'placehold.co',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'image.tmdb.org',
+        port: '',
+      },
     ],
   },
   webpack: (config) => {
-    // Define aliases here
     config.resolve.alias = {
       ...config.resolve.alias,
       '@components': path.resolve(__dirname, 'src/shared/components'),
